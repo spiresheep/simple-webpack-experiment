@@ -24,11 +24,15 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      chunks: 'initial',
     }
   },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: 'bundle.[contenthash].js', 
+    path: path.resolve(__dirname, 'dist'),
+    chunkFilename: '[name].[chunkhash].bundle.js',
   },
   plugins: [new HtmlWebpackPlugin({
     filename: 'index.html',

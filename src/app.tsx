@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { HomePage } from './home';
 
 const LazyHome = React.lazy(() => import('./home').then());
-//const LazySheepPage = React.lazy(() => import('./sheep'));
+const LazySheepPage = React.lazy(() => import('./sheep').then());
 
 
 const App: React.FC = () => {
@@ -15,9 +15,13 @@ const App: React.FC = () => {
           <li>
             <Link to="/"> Home </Link>
           </li>
+          <li>
+            <Link to="/sheep/"> Sheep </Link>
+          </li>
         </ul>
       <React.Suspense fallback={<div>Loading</div>}>
         <Route path="/" exact component={LazyHome} />
+        <Route path="/sheep/" exact component={LazySheepPage} />
         </React.Suspense>
       </Router>
     </div>
