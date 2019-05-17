@@ -11,16 +11,8 @@ const App: React.FC = () => {
     <div >
       <div>HOWDY</div>
       <Router>
-        <ul>
-          <li>
-            <Link to="/"> Home </Link>
-          </li>
-          <li>
-            <Link to="/sheep/"> Sheep </Link>
-          </li>
-        </ul>
       <React.Suspense fallback={<div>Loading</div>}>
-        <Route exact path="/"  component={LazyHome} />
+        <Route exact path="/"  render={() => {return <LazyHome nextPageUrl='/sheep/'/>}}/>
         <Route path="/sheep/"component={LazySheepPage} />
         </React.Suspense>
       </Router>
