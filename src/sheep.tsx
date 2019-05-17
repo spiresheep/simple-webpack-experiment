@@ -18,8 +18,8 @@ export class SheepPage extends React.Component<{}, State> {
         <pre>
           <div>    ,'```--'''  ``-''-.</div>
           <div>   ,'            ,-- ,-'.</div>
-          <div>   (//           `"'| 'a \</div>
-          <div>      \              |--._/</div>
+          <div> (//             `"'| 'a \</div>
+          <div>   \                |--._/</div>
           <div>    \    _;-._,    /</div>
           <div>     \__/\\   \__,'</div>
           <div>      ||  `'   \|\\</div>

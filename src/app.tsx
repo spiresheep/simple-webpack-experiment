@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { HomePage } from './home';
 
 const LazyHome = React.lazy(() => import('./home').then());
 const LazySheepPage = React.lazy(() => import('./sheep').then());

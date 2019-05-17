@@ -5,15 +5,7 @@ module.exports = {
   entry: './src/index.tsx',
   module: {
     rules: [
-      {
-        test: /\.(ts|tsx)?$/,
-        //include: path.resolve(__dirname, 'src'),
-        use: [
-          {
-            loader: 'ts-loader'
-          }
-        ]
-      },
+      { test: /\.tsx?$/, loader: "ts-loader" },
       {
         enforce: 'pre',
         test: /\.js$/,
@@ -25,14 +17,16 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       maxInitialRequests: Infinity,
-      minSize: 0,
-      chunks: 'initial',
-    }
+      minSize: 0
+    },
+    runtimeChunk: {
+      name: "manifest",
+    },
   },
   output: {
-    filename: 'bundle.[contenthash].js', 
+    filename: 'bundle.js', 
     path: path.resolve(__dirname, 'dist'),
-    chunkFilename: '[name].[chunkhash].bundle.js',
+    chunkFilename: '[name].chunk.js',
   },
   plugins: [new HtmlWebpackPlugin({
     filename: 'index.html',
@@ -40,5 +34,12 @@ module.exports = {
   })],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json']
+  },
+  devServer: {
+    // Display only errors to reduce the amount of output.
+    stats: "errors-only",
+    host: process.env.HOST, // Defaults to `localhost`
+    port: process.env.PORT, // Defaults to 8080
+    open: true, // Open the page in browser
   }
 };
