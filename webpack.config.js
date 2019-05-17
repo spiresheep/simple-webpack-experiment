@@ -1,4 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -10,6 +11,14 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'source-map-loader'
+      },
+      { test: /\.json$/, loader: 'json' },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+        }
       }
     ]
   },
@@ -27,6 +36,7 @@ module.exports = {
     filename: 'bundle.js', 
     path: path.resolve(__dirname, 'dist'),
     chunkFilename: '[name].chunk.js',
+    publicPath: '/'
   },
   plugins: [new HtmlWebpackPlugin({
     filename: 'index.html',
@@ -38,6 +48,7 @@ module.exports = {
   devServer: {
     // Display only errors to reduce the amount of output.
     stats: "errors-only",
+    compress: true,
     host: process.env.HOST, // Defaults to `localhost`
     port: process.env.PORT, // Defaults to 8080
     open: true, // Open the page in browser
