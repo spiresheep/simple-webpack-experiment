@@ -20,8 +20,8 @@ const App: React.FC = () => {
           </li>
         </ul>
       <React.Suspense fallback={<div>Loading</div>}>
-        <Route path="/" exact component={LazyHome} />
-        <Route path="/sheep/" exact component={LazySheepPage} />
+        <Route exact path="/"  component={LazyHome} />
+        <Route path="/sheep/"component={LazySheepPage} />
         </React.Suspense>
       </Router>
     </div>
