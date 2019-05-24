@@ -23,7 +23,7 @@ export class SheepPage extends React.Component<{}, State> {
           <div>    \    _;-._,    /</div>
           <div>     \__/\\   \__,'</div>
           <div>      ||  `'   \|\\</div>
-          <div>        \\        \\`'</div>
+          <div>       \\       \\`'</div>
           <div>       `'        `'</div>
         </pre>
       </div>);
