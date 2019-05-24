@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-        "module": "esnext",
+    "module": "esnext", // important!
     "moduleResolution": "node",
     "jsx": "react",
     "sourceMap": true,
