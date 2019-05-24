@@ -34,7 +34,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js', 
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     chunkFilename: '[name].chunk.js',
     publicPath: '/'
   },
@@ -47,10 +47,11 @@ module.exports = {
   },
   devServer: {
     // Display only errors to reduce the amount of output.
+    contentBase: path.join(__dirname, "../dist/"),
     stats: "errors-only",
     compress: true,
-    host: process.env.HOST, // Defaults to `localhost`
-    port: process.env.PORT, // Defaults to 8080
+    host: '0.0.0.0', // Defaults to `localhost`
+    port: 5000, // Defaults to 8080
     open: true, // Open the page in browser
   }
 };
