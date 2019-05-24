@@ -26,8 +26,7 @@ export class SheepPage extends React.Component<{}, State> {
           <div>        \\        \\`'</div>
           <div>       `'        `'</div>
         </pre>
-        </div>
-      );
+      </div>);
     }
   }
 

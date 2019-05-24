@@ -1,10 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const LazyHome = React.lazy(() => import('./home'));
 const LazySheepPage = React.lazy(() => import('./sheep'));
-
 
 const App: React.FC = () => {
   return (
@@ -19,7 +18,6 @@ const App: React.FC = () => {
     </div>
   );  
 }
-
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 
